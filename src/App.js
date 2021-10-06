@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import 'leaflet/dist/leaflet.css';
+import { MapContainer, TileLayer } from 'react-leaflet';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Mapa</h1>
+
+      <div className="Map">
+        <MapContainer className="Map-container" center={[0,0]} zoom={5}>
+          <TileLayer 
+            attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+      			url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+          />
+        </MapContainer>
+      </div>
+
     </div>
   );
 }
